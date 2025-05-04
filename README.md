@@ -1,54 +1,71 @@
-# React + TypeScript + Vite
+# Sheet Layout Optimizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web application for typesetting and printing companies that optimizes the layout of multiple product types on printing sheets.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Sheet Configuration**: Define custom sheet dimensions in millimeters
+- **Multi-Product Support**: Add multiple product types with different dimensions and quantities
+- **Optimized Layout**: Arranges products efficiently using an advanced 2D bin packing algorithm
+- **Ratio Maintenance**: Preserves the original ratio between different product quantities
+- **Identical Sheets**: Generates consistent layouts across all sheets for easier printing
+- **Visual Preview**: Displays the optimized layout with intuitive visualization
+- **Quantity Calculation**: Shows how many sheets are needed and the total items produced
 
-## Expanding the ESLint configuration
+## Usage
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Configure Sheet Size**:
+   - Set the width and height of your printing sheet in millimeters
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+2. **Add Products**:
+   - Enter product name, dimensions (width and height), and quantity
+   - Add as many different product types as needed
+
+3. **Optimize Layout**:
+   - Click the "Optimize Layout" button to generate the optimal arrangement
+   - View the visual representation of the layout and production statistics
+
+4. **Review Results**:
+   - Check the total number of sheets required
+   - Verify the utilization rate (sheet area usage efficiency)
+   - Review how many items of each product will be placed on each sheet
+   - Confirm the total quantities that will be produced
+
+## Technical Details
+
+Built with modern web technologies:
+- React 18+
+- TypeScript
+- Vite
+- React-Konva for canvas visualization
+
+The layout optimization algorithm uses:
+- Binary search approach for maximizing items per sheet
+- Edge-based placement scoring for efficient packing
+- Proportional distribution to maintain product ratios
+
+## Getting Started
+
+### Prerequisites
+- Node.js 16.0 or higher
+- npm or yarn
+
+### Installation
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Deployment
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The built application (found in the `dist` directory after running `npm run build`) can be deployed to any static hosting service like Netlify, Vercel, or GitHub Pages.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## License
+
+MIT
