@@ -1,0 +1,24 @@
+Create a web application for a typesetting/printing company that optimizes product layout on sheets. Requirements:
+
+1. Core functionality:
+   - Allow users to specify sheet dimensions (width and height in mm)
+   - Let users add multiple product types with different dimensions and quantities
+   - Arrange products on sheets efficiently using a 2D bin packing algorithm
+   - Maintain the correct ratio between different product quantities
+   - Calculate the minimum number of identical sheets needed
+   - Display the optimized layout visually
+
+2. Key information to display:
+   - Visual representation of the sheet layout
+   - Total number of sheets needed
+   - Utilization rate (percentage of sheet area used)
+   - Products per sheet (quantity of each type)
+   - Total quantities that will be produced (including any extras)
+
+3. Technical implementation:
+   - Use React with TypeScript
+   - Use canvas-based visualization (react-konva or similar)
+   - Optimize placement with edge-based scoring for better packing
+   - Ensure consistent layouts across all sheets
+
+The application should follow the principle that all sheets have identical layouts, and the original ratio between product quantities should be maintained as closely as possible to minimize waste.
